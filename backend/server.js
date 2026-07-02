@@ -39,9 +39,22 @@ app.use(
   })
 );
 
+// Root route (so Render base URL shows a friendly message)
+app.get("/", (req, res) => {
+  res.json({
+    success: true,
+    message: "EMS Backend is running",
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check
-app.get('/api/health', (req, res) => {
-  res.json({ success: true, message: 'EMS API is running', timestamp: new Date().toISOString() });
+app.get("/api/health", (req, res) => {
+  res.json({
+    success: true,
+    message: "EMS API is running",
+    timestamp: new Date().toISOString()
+  });
 });
 
 // API routes
